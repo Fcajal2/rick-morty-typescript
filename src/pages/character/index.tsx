@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import Pagination from "../../components/pagination";
+import Pagination2 from "../../components/pagination";
 import Search from "../../components/search";
 import styles from "../../styles/Main.module.css";
 import Filter from "../../components/filter";
@@ -78,7 +78,7 @@ export default function Home({ data }: { data: DataChar }) {
           <h1>No Characters Found</h1>
         )}
 
-        <Pagination page={page} updatePage={updatePage} info={info} />
+        <Pagination2 page={page} updatePage={updatePage} info={info} />
       </main>
     </>
   );

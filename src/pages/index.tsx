@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Link from "next/link";
-import styles from "@/styles/Home.module.css";
 
 
 
@@ -11,7 +10,7 @@ export default function Home() {
         <title>R&M Wiki</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
+      <main>
         <Link href="/" as={`/`}>
           <h1>Rick and morty Wiki</h1>
         </Link>
