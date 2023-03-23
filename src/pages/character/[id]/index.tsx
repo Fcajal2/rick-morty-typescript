@@ -6,7 +6,11 @@ import Navbar from "../../../components/navbar";
 
 const defaultEndpoint = "https://rickandmortyapi.com/api/character/";
 
-export async function getServerSideProps({ query }) {
+export async function getServerSideProps({
+  query,
+}: {
+  query: Record<string, string[]>;
+}) {
   const { id } = query;
   //fetching data
   const res = await fetch(`${defaultEndpoint}/${id}`);
@@ -19,7 +23,7 @@ export async function getServerSideProps({ query }) {
   };
 }
 
-export default function Charater({ result }:{result: ResultChar}) {
+export default function Charater({ result }: { result: ResultChar }) {
   return (
     <>
       <Head>
@@ -65,7 +69,9 @@ export default function Charater({ result }:{result: ResultChar}) {
               <li>
                 <strong>Originally From: </strong>
                 <Link
-                  href={`/location/${result.origin.url.split("/").slice(-1)[0]}`}
+                  href={`/location/${
+                    result.origin.url.split("/").slice(-1)[0]
+                  }`}
                 >
                   {result.origin.name}
                 </Link>
@@ -76,7 +82,7 @@ export default function Charater({ result }:{result: ResultChar}) {
                 <div>
                   <h1>Episode Appearances</h1>
                   <ul className={styles.character_tiles}>
-                    {result.episode.map((episode:string) => {
+                    {result.episode.map((episode) => {
                       return <EpisodeList endpoint={episode} />;
                     })}
                   </ul>

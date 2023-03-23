@@ -11,14 +11,14 @@ type ResultChar = {
   species: string;
   type: string;
   gender: string;
-  origin: Location;
-  location: Location;
+  origin: Location2;
+  location: Location2;
   image: string;
   episode: string[];
   url: string;
   created: string;
 };
-type Location = {
+type Location2 = {
   name: string;
   url: string;
 };

@@ -1,22 +1,24 @@
-export default function Search({ setSearch, updatePage }:{ setSearch: , updatePage: }) {
-    function handleOnSumbitSearch(e) {
-      e.preventDefault();
-  
-      const { currentTarget = {} } = e;
-      const fields = Array.from(currentTarget?.elements);
-      const fieldQuery = fields.find((field) => field.name === "query");
-  
-      const value = fieldQuery.value || "";
-      setSearch(`&name=${value}`);
-      updatePage(1);
-    }
-    return (
-      <div>
-        <form onSubmit={handleOnSumbitSearch}>
-          <input type="search" name="query" />
-          <button>Search</button>
-        </form>
-      </div>
-    );
+import { Dispatch, FormEvent, SetStateAction } from "react";
+
+export default function Search({
+  setSearch,
+  updatePage,
+}: {
+  setSearch: Dispatch<SetStateAction<string | undefined>>;
+  updatePage: Dispatch<SetStateAction<number>>;
+}) {
+  function handleOnSumbitSearch(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const value = e.currentTarget?.query.value || "";
+    setSearch(`&name=${value}`);
+    updatePage(1);
   }
-  
+  return (
+    <div>
+      <form onSubmit={handleOnSumbitSearch}>
+        <input type="search" name="query" />
+        <button>Search</button>
+      </form>
+    </div>
+  );
+}

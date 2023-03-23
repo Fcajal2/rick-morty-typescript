@@ -31,7 +31,7 @@ export default function Home({ data }: { data: DataLoc }) {
   const [results, updateResults] = useState(defaultResults);
   const [info, updateInfo] = useState(defaultInfo);
   const [page, updatePage] = useState(1);
-  const [search, setSearch] = useState();
+  const [search, setSearch] = useState<string>();
 
   useEffect(() => {
     async function request() {

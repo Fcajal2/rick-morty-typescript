@@ -6,7 +6,11 @@ import Navbar from "../../../components/navbar";
 
 const defaultEndpoint = "https://rickandmortyapi.com/api/episode/";
 
-export async function getServerSideProps({ query }) {
+export async function getServerSideProps({
+  query,
+}: {
+  query: Record<string, string[]>;
+}) {
   const { id } = query;
   //fetching data
   const res = await fetch(`${defaultEndpoint}/${id}`);

@@ -1,5 +1,13 @@
-export default function Gender({ setGender, updatePage }:{ setGender: , updatePage: }) {
-  function handleFilter(query:string) {
+import { Dispatch, SetStateAction } from "react";
+
+export default function Gender({
+  setGender,
+  updatePage,
+}: {
+  setGender: Dispatch<SetStateAction<string>>;
+  updatePage: Dispatch<SetStateAction<number>>;
+}) {
+  function handleFilter(query: string) {
     const value = query || "";
     console.log(query, value);
     setGender(`&gender=${value}`);

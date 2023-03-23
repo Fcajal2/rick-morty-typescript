@@ -32,8 +32,8 @@ export default function Home({ data }: { data: DataChar }) {
   const [results, updateResults] = useState(defaultResults);
   const [info, updateInfo] = useState(defaultInfo);
   const [page, updatePage] = useState(1);
-  const [search, setSearch] = useState();
-  const [filter, setFilter] = useState();
+  const [search, setSearch] = useState<string>();
+  const [filter, setFilter] = useState<string>();
 
   useEffect(() => {
     async function request() {
